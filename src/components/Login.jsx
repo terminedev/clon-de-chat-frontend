@@ -16,7 +16,7 @@ function Login({ allUsers, setCurrentUser, reloadUsers }) {
         e.preventDefault();
         try {
             const user = await createUser(newUsername, newEmail);
-            setCurrentUser(user);
+            setCurrentUser(user.data);
             reloadUsers(); // Refrescar lista global
         } catch (error) {
             alert("Error al crear usuario. Revisa que el email o nombre no estén duplicados.");

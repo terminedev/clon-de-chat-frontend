@@ -17,7 +17,7 @@ function ChatDashboard({ currentUser, allUsers, setCurrentUser }) {
     const loadChats = async (userId) => {
         try {
             const userChats = await getUserChats(userId);
-            setChats(userChats);
+            setChats(userChats.data);
         } catch (error) {
             console.error(error);
         }
@@ -37,7 +37,7 @@ function ChatDashboard({ currentUser, allUsers, setCurrentUser }) {
         setCurrentChat(chat);
         try {
             const history = await getChatHistory(chat._id);
-            setMessages(history);
+            setMessages(history.data);
         } catch (error) {
             console.error("Error al cargar historial", error);
         }
